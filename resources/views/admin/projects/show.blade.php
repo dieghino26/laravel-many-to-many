@@ -4,6 +4,7 @@
 
 @section('content')
 
+
     <header>
         <h1 class="my-5">{{ $project->title }}</h1>
     </header>
