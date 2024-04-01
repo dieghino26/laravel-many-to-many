@@ -12,6 +12,7 @@
                     <th scope="col">Titolo</th>
                     <th scope="col">Slug</th>
                     <th scope="col">Creato il</th>
+                    <th scope="col">Tecnologia</th>
                     <th scope="col">Ultima modifica</th>
                     <th><a href="{{ route('admin.projects.create') }}" class="btn btn-sm btn secondary"><i
                                 class="fas fa-plus me-2"></i>
@@ -25,6 +26,13 @@
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->slug }}</td>
                         <td>{{ $project->type }}</td>
+                        <td>
+                            @forelse($project->technologies as $technology)
+                                <span class="badge text-bg-{{ $technology->color }}">{{ $technology->label }}</span>
+                            @empty
+                                -
+                            @endforelse
+                        </td>
                         <td>{{ $project->getFormattedDate('created_at', 'd-m-Y H:i:s') }}</td>
                         <td>{{ $project->getFormattedDate('updated_at') }}</td>
                         <td>
